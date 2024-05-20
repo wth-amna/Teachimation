@@ -1,0 +1,29 @@
+
+{%extends 'main.html'%}
+
+{%block content%}
+  <main class="profile-page layout layout--3">
+    <div class="container" style="display: ruby-text;">
+
+      <!-- Room List Start -->
+      <div class="roomList">
+        <div class="profile">
+          <div class="profile__avatar">
+            <div class="avatar avatar--large active" style="width:20rem; height:20rem;">
+              <img src="../../../static/images/avatar.svg" style="width:20rem; height:20rem;"/>
+            </div>
+          </div>
+          <div class="profile__info container">
+            <h3>{{user.username}}</h3>
+            <p>{{user.username}}</p>
+            <p>{{user.email}}</p>
+            {%if request.user == user%}
+            <a href="{%url 'update-user' %}" class="btn btn--main btn--pill">Edit Profile</a>
+            {%endif%}
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </main>
+{%endblock%}

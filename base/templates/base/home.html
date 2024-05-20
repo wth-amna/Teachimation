@@ -1,0 +1,81 @@
+{% extends 'main.html'%}
+
+{% block content %}
+<!-- 
+<form method="get" action="{% url 'search' %}">
+    <input type="text" name="query" placeholder="Search for a topic">
+    <button type="submit">Search</button>
+</form> -->
+<style>
+    .image-container {
+  display: flex; /* Make the container a flexbox */
+  align-items: center; /* Align content vertically in the middle */
+  margin-top: 6%;
+}
+
+.text-content {
+  width: 50%; 
+ /* Set width for text content (adjust as needed) */
+}
+
+img {
+  width: 30%; /* Adjust image width as needed */
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+}
+
+.modal-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.loader {
+  border: 4px solid #f3f3f3; /* Light grey */
+  border-top: 4px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+</style>
+<div id="loadingModal" class="modal">
+  <div class="modal-content">
+      <div class="loader"></div>
+      <p>Loading...</p>
+  </div>
+</div>
+<div class="image-container">
+    <div class="text-content">
+      <p style="text-align: center; font-size: 150%; margin-left: 35%;">Welcome to Teachimation, where computer science education meets innovation. Start exploring today!</p>
+    </div>
+    <img src="/static/images/female.png" alt="Female Image">
+  </div>
+ 
+
+{%endblock%}

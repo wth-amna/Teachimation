@@ -1,0 +1,67 @@
+
+{% extends 'main.html' %}
+{% block content %}
+<div>
+    <!-- <form method="get" action="{% url 'search' %}">
+        <input type="text" name="query" placeholder="Search for a topic">
+        <button type="submit">Search</button>
+    </form> -->
+    <div id="loadingModal" class="modal">
+        <div class="modal-content">
+            <div class="loader"></div>
+            <p>Loading...</p>
+        </div>
+      </div>
+    <div class="container">
+        <div class="container" style="background-color:var(--color-dark); margin-top: 5%;">
+            <div class="room__topics" style="margin:5% 10%"">
+                {% if topics %}
+                {% for topic in topics %}
+               
+                   
+                    <div class="container" style="margin: 5%;">
+                        <!-- <button id="speak" onclick="speakWelcomeMessage()">Speak</button> -->
+                        <button id="male" onclick="toggleSource('male')"
+                        style="padding: 1%; margin: 1%; background-color: black; color: white; border: 1px solid black ; border-radius: 5px;">
+                        
+                            Male
+                        </button>
+                        <button id="female" onclick="toggleSource('female')" style="padding: 1%; margin: 1%; background-color: black; color: white; border: 1px solid black ; border-radius: 5px;">
+                            Female
+                        </button>
+                        <!-- Add your video here -->
+                        <video width="100%" id="video" muted loop >
+                            <source src="../../../static/videos/aurat.mp4" id="source" type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
+                        <button id="playbtn" onclick="togglePlayPause()" style="padding: 1%; margin: 1%; background-color: black; color: white; border: 1px solid black ; border-radius: 5px;">
+                            Play
+                        </button>
+                        
+                        <!-- <video>
+                            <source src="../../../static/videos/lecture.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video> -->
+                    </div>
+                    <div style="padding: 3%;">
+                        <h1 style="font-size: large; margin-bottom: 2%;">{{ topic.name }}</h1>
+                        <p id="summary">Summary: {{ topic.summary }}</p>
+                    </div>
+                {% endfor %}
+            {% elif error_message %}
+                <p>Loading, please wait...</p>
+            {% endif %}
+    
+            </div>
+        </div>
+        
+       
+    </div>
+ 
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+
+{% endblock %}
